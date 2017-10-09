@@ -3,7 +3,7 @@ echo "Initializing setup..."
 
 cd /var/www/html
 
-rm rf .keep
+rm -rf .keep
 
 if [ -f ./app/etc/config.php ] || [ -f ./app/etc/env.php ]; then
   echo "It appears Magento is already installed (app/etc/config.php or app/etc/env.php exist). Exiting setup..."
@@ -37,6 +37,7 @@ echo "Running Magento 2 setup script..."
   --admin-email=$M2SETUP_ADMIN_EMAIL \
   --admin-user=$M2SETUP_ADMIN_USER \
   --admin-password=$M2SETUP_ADMIN_PASSWORD \
+  --backend-frontname=$M2SETUP_BACKEND_FRONTNAME \
   $M2SETUP_USE_SAMPLE_DATA_STRING
 
 echo "The setup script has completed execution."
